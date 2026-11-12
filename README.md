@@ -8,11 +8,11 @@ The system provides a centralized platform to manage courier operations and moni
 
 ## 2. Technologies Used
 
-- Frontend: HTML, CSS
-- Backend: PHP
-- Database: MySQL
-- Database Management Tool: MySQL Workbench
-- Local Server: XAMPP
+- **Frontend:** HTML, CSS
+- **Backend:** PHP
+- **Database:** MySQL
+- **Database Management Tool:** MySQL Workbench
+- **Local Server:** XAMPP
 
 ## 3. Main Features
 
@@ -54,6 +54,8 @@ It shows the primary keys, foreign keys, attributes, and relationships used in t
 
 ![TrackFlow ER Diagram](DBMS/TrackFlow_ER_Diagram.png)
 
+[View ER Diagram](DBMS/TrackFlow_ER_Diagram.png)
+
 ### Main Relationships
 
 - Customer – Booking: One-to-Many
@@ -68,7 +70,7 @@ It shows the primary keys, foreign keys, attributes, and relationships used in t
 
 ## 6. Advanced SQL Concepts
 
-The project demonstrates:
+The project demonstrates the following SQL concepts:
 
 - SQL Joins
 - Aggregate Functions
@@ -82,10 +84,21 @@ The project demonstrates:
 ## 7. Project Structure
 
 ```text
-
 TrackFlow-Courier-Tracking-System/
 │
 ├── DBMS/
+│   │
+│   ├── Screenshot/
+│   │   ├── Bookings.png
+│   │   ├── Dashboard1.png
+│   │   ├── Dashboard2.png
+│   │   ├── Report1.png
+│   │   ├── Report2.png
+│   │   ├── Report3.png
+│   │   ├── Tracking.png
+│   │   └── report4.png
+│   │
+│   ├── TrackFlow_ER_Diagram.png
 │   ├── Agent and branch performance reports.sql
 │   ├── Customer and booking details.sql
 │   ├── Databse & Relation Creation.sql
@@ -111,16 +124,68 @@ TrackFlow-Courier-Tracking-System/
 │   └── style.css
 │
 └── README.md
-
 ```
+
 The repository is divided into two main folders:
 
-- **DBMS:** Contains database creation scripts, sample data, SQL queries, advanced SQL implementations, and the MySQL Workbench database model.
+- **DBMS:** Contains database creation scripts, sample data, SQL queries, advanced SQL implementations, website screenshots, the ER diagram, and the MySQL Workbench database model.
 - **TrackFlow:** Contains the PHP application files and CSS stylesheet used to implement the courier tracking system.
 
 The root directory contains the README.md file, which provides project documentation, setup instructions, database information, and implementation details.
 
-## 8. Installation and Setup
+## 8. Website Screenshots
+
+The following screenshots demonstrate the working interface and major functionalities of the TrackFlow Courier Tracking System.
+
+### 8.1 Dashboard
+
+The dashboard provides an overview of courier operations and important statistics.
+
+[![Dashboard 1](DBMS/Screenshot/Dashboard1.png)](DBMS/Screenshot/Dashboard1.png)
+
+[View Dashboard 1](DBMS/Screenshot/Dashboard1.png)
+
+[![Dashboard 2](DBMS/Screenshot/Dashboard2.png)](DBMS/Screenshot/Dashboard2.png)
+
+[View Dashboard 2](DBMS/Screenshot/Dashboard2.png)
+
+### 8.2 Courier Booking
+
+Displays the courier booking interface used to manage courier bookings.
+
+[![Courier Booking](DBMS/Screenshot/Bookings.png)](DBMS/Screenshot/Bookings.png)
+
+[View Courier Booking Screenshot](DBMS/Screenshot/Bookings.png)
+
+### 8.3 Shipment Tracking
+
+Displays shipment tracking information and shipment progress.
+
+[![Shipment Tracking](DBMS/Screenshot/Tracking.png)](DBMS/Screenshot/Tracking.png)
+
+[View Shipment Tracking Screenshot](DBMS/Screenshot/Tracking.png)
+
+### 8.4 Reports and Analytics
+
+The following screenshots demonstrate the reporting and analytical features of TrackFlow.
+
+[![Report 1](DBMS/Screenshot/Report1.png)](DBMS/Screenshot/Report1.png)
+
+[View Report 1](DBMS/Screenshot/Report1.png)
+
+[![Report 2](DBMS/Screenshot/Report2.png)](DBMS/Screenshot/Report2.png)
+
+[View Report 2](DBMS/Screenshot/Report2.png)
+
+[![Report 3](DBMS/Screenshot/Report3.png)](DBMS/Screenshot/Report3.png)
+
+[View Report 3](DBMS/Screenshot/Report3.png)
+
+[![Report 4](DBMS/Screenshot/report4.png)](DBMS/Screenshot/report4.png)
+
+[View Report 4](DBMS/Screenshot/report4.png)
+
+## 9. Installation and Setup
 
 1. Install XAMPP and MySQL.
 2. Start Apache and MySQL.
@@ -134,13 +199,7 @@ The root directory contains the README.md file, which provides project documenta
 http://localhost/TrackFlow/
 ```
 
-**Note:** Configure your own database credentials locally. Do not upload database passwords or private configuration files to GitHub.
-
-## 9. Team Project
-
-TrackFlow is developed as an academic DBMS project to demonstrate database design, SQL concepts, and PHP-MySQL integration.
-
----
+**Note:** Configure your database credentials locally. Do not upload database passwords or private configuration files to GitHub.
 
 ## 10. Stored Procedures, Functions, Triggers, Cursors and Transactions
 
@@ -150,11 +209,11 @@ The implementation is available mainly in:
 
 `DBMS/frnction_and_feture_creation.sql`
 
-### 11 Stored Function – Calculate_Charge()
+### 10.1 Stored Function – Calculate_Charge()
 
 The `Calculate_Charge()` function calculates courier charges according to the courier type and package weight.
 
-**Pricing logic:**
+**Pricing Logic:**
 
 | Courier Type | Charge Calculation |
 |---|---|
@@ -163,15 +222,15 @@ The `Calculate_Charge()` function calculates courier charges according to the co
 | Fragile | 80 + 70 × Weight |
 | Express | 100 + 90 × Weight |
 
-**Example execution:**
+**Example Execution:**
 
 ```sql
 SELECT Calculate_Charge('Parcel', 2.5);
 ```
 
-**Expected result:** 172.50
+**Expected Result:** 172.50
 
-### 11.1 Stored Procedure – Book_Courier()
+### 10.2 Stored Procedure – Book_Courier()
 
 The `Book_Courier()` procedure handles the courier booking process.
 
@@ -186,7 +245,7 @@ It performs the following operations:
 - Creates the initial tracking record in the Tracking table.
 - Uses a transaction to commit the booking or roll back changes if an SQL error occurs.
 
-**Example execution:**
+**Example Execution:**
 
 ```sql
 CALL Book_Courier(1, 'Express', 2.0, 'Delhi', 'Pune', 'Card');
@@ -194,11 +253,11 @@ CALL Book_Courier(1, 'Express', 2.0, 'Delhi', 'Pune', 'Card');
 
 The procedure returns the generated tracking number and calculated charges.
 
-### 11.2 Trigger – Automatic Shipment Tracking
+### 10.3 Trigger – Automatic Shipment Tracking
 
 The trigger `trg_shipment_status_tracking` automatically inserts a new record into the Tracking table when a shipment's status changes.
 
-**Example execution:**
+**Example Execution:**
 
 ```sql
 UPDATE Shipment
@@ -206,7 +265,7 @@ SET Status = 'Picked Up'
 WHERE Shipment_ID = 60;
 ```
 
-**Verify the tracking history:**
+**Verify the Tracking History:**
 
 ```sql
 SELECT Location, Status
@@ -217,11 +276,11 @@ ORDER BY Date, Tracking_ID;
 
 This demonstrates automatic tracking-history generation after a shipment status update.
 
-### 11.3 Cursors – Branch-wise and Agent-wise Reports
+### 10.4 Cursors – Branch-wise and Agent-wise Reports
 
 TrackFlow uses cursors to process database records one by one.
 
-**Branch-wise report:**
+**Branch-wise Report:**
 
 ```sql
 CALL Branch_Report();
@@ -229,7 +288,7 @@ CALL Branch_Report();
 
 Processes each branch and calculates its associated shipment count and delivered shipment count.
 
-**Agent-wise report:**
+**Agent-wise Report:**
 
 ```sql
 CALL Agent_Report();
@@ -237,11 +296,11 @@ CALL Agent_Report();
 
 Processes each delivery agent and calculates the total deliveries and completed deliveries.
 
-### 11.4 Transactions – COMMIT and ROLLBACK
+### 10.5 Transactions – COMMIT and ROLLBACK
 
 Transactions demonstrate how database changes can be saved permanently or cancelled.
 
-**ROLLBACK example:**
+**ROLLBACK Example:**
 
 ```sql
 START TRANSACTION;
@@ -255,7 +314,7 @@ ROLLBACK;
 
 The update is cancelled.
 
-**COMMIT example:**
+**COMMIT Example:**
 
 ```sql
 START TRANSACTION;
@@ -271,17 +330,17 @@ The update is saved permanently.
 
 The demonstration script also includes an invalid feedback-rating operation to illustrate transaction rollback.
 
-**SQL demonstration file:** `DBMS/Demonstrating Functions.sql`
+**SQL Demonstration File:** `DBMS/Demonstrating Functions.sql`
 
 ---
 
-## 12. Reports and Analytics
+## 11. Reports and Analytics
 
 TrackFlow uses SQL queries and stored procedures to generate reports for analysing courier operations.
 
-### 12.1 Customer and Booking Details
+### 11.1 Customer and Booking Details
 
-**SQL file:** `Customer and booking details.sql`
+**SQL File:** `Customer and booking details.sql`
 
 Provides customer and booking information, including booking counts and customer-related details.
 
@@ -292,11 +351,11 @@ SQL concepts demonstrated include:
 - GROUP BY
 - COUNT()
 - SUM()
-- Aggregate functions
+- Aggregate Functions
 
-### 12.2 Payment and Revenue Reports
+### 11.2 Payment and Revenue Reports
 
-**SQL file:** `Payment and revenue reports.sql`
+**SQL File:** `Payment and revenue reports.sql`
 
 Provides payment and revenue analysis, including:
 
@@ -314,9 +373,9 @@ SQL concepts demonstrated include:
 - WHERE
 - ORDER BY
 
-### 12.3 Feedback and Rating Reports
+### 11.3 Feedback and Rating Reports
 
-**SQL file:** `Feedback and rating reports.sql`
+**SQL File:** `Feedback and rating reports.sql`
 
 Provides customer feedback and rating analysis, including:
 
@@ -337,9 +396,9 @@ SQL concepts demonstrated include:
 - MIN()
 - ROUND()
 
-### 12.4 Branch-wise and Agent-wise Performance Reports
+### 11.4 Branch-wise and Agent-wise Performance Reports
 
-**SQL file:** `frnction_and_feture_creation.sql`
+**SQL File:** `frnction_and_feture_creation.sql`
 
 The procedures `Branch_Report()` and `Agent_Report()` generate performance information using cursors.
 
@@ -353,7 +412,7 @@ CALL Agent_Report();
 
 These procedures calculate branch-wise shipment performance and agent-wise delivery performance.
 
-### 12.5 Additional Report Categories
+### 11.5 Additional Report Categories
 
 The project also includes SQL files intended for:
 
@@ -365,7 +424,7 @@ The report queries in these additional files need to be completed and tested bef
 
 ---
 
-## 13. SQL Files
+## 12. SQL Files
 
 The `DBMS` folder contains the following important SQL files:
 
@@ -383,11 +442,14 @@ The `DBMS` folder contains the following important SQL files:
 
 ---
 
-**Project Name:** TrackFlow – Courier Tracking System  
-**Database:** MySQL  
-**Backend:** PHP  
+## 13. Team Project
+
+TrackFlow is developed as an academic DBMS project to demonstrate database design, SQL concepts, and PHP-MySQL integration.
+
+**Project Name:** TrackFlow – Courier Tracking System
+
+**Database:** MySQL
+
+**Backend:** PHP
+
 **Institution:** Jaypee Institute of Information Technology, Noida
-
-
-
-
