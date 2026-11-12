@@ -82,20 +82,36 @@ The project demonstrates:
 ## 7. Project Structure
 
 ```text
+
 TrackFlow-Courier-Tracking-System/
 │
 ├── DBMS/
-│   ├── Database Creation
-│   ├── Sample Data
-│   ├── SQL Reports
-│   ├── Functions and Procedures
-│   └── MySQL Workbench File
+│   ├── Agent and branch performance reports.sql
+│   ├── Customer and booking details.sql
+│   ├── Databse & Relation Creation.sql
+│   ├── Delivered, pending and in-transit reports.sql
+│   ├── Demonstrating Functions.sql
+│   ├── Feedback and rating reports.sql
+│   ├── Payment and revenue reports.sql
+│   ├── Shipment status and complete tracking history.sql
+│   ├── code.mwb
+│   ├── frnction_and_feture_creation.sql
+│   └── insert_sample_data.sql
 │
 ├── TrackFlow/
-│   ├── PHP Files
+│   ├── add_employee.php
+│   ├── create_shipment.php
+│   ├── employee.php
+│   ├── feedback.php
+│   ├── index.php
+│   ├── register.php
+│   ├── reports.php
+│   ├── track.php
+│   ├── update_shipment.php
 │   └── style.css
 │
 └── README.md
+
 ```
 
 ## 8. Installation and Setup
