@@ -112,6 +112,13 @@ TrackFlow-Courier-Tracking-System/
 │
 └── README.md
 
+The repository is divided into two main folders:
+
+- **DBMS:** Contains database creation scripts, sample data, SQL queries, advanced SQL implementations, and the MySQL Workbench database model.
+- **TrackFlow:** Contains the PHP application files and CSS stylesheet used to implement the courier tracking system.
+
+The root directory contains the README.md file, which provides project documentation, setup instructions, database information, and implementation details.
+
 ```
 
 ## 8. Installation and Setup
@@ -381,3 +388,7 @@ The `DBMS` folder contains the following important SQL files:
 **Database:** MySQL  
 **Backend:** PHP  
 **Institution:** Jaypee Institute of Information Technology, Noida
+
+
+
+
