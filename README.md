@@ -4,7 +4,7 @@
 
 TrackFlow is a database management system designed to manage courier bookings, shipments, tracking, payments, delivery agents, branches and customer feedback using MySQL.
 
-The project demonstrates relational database design and advanced SQL concepts through practical courier management operations and analytical reports. It can be executed directly in MySQL Workbench without a frontend.
+The project demonstrates relational database design and advanced SQL concepts through practical courier management operations and analytical reports.
 
 ## Objectives
 
@@ -24,7 +24,7 @@ The project demonstrates relational database design and advanced SQL concepts th
 
 ## Database Structure
 
-Database name: `trackflow_db`
+**Database Name:** `trackflow_db`
 
 | Table | Purpose |
 |---|---|
@@ -51,28 +51,42 @@ Database name: `trackflow_db`
 - NOT NULL, UNIQUE, CHECK and DEFAULT constraints
 - Aggregate functions and GROUP BY
 - JOINs and subqueries
-- Stored functions and stored procedures
-- Triggers and views
+- Stored functions
+- Stored procedures
+- Triggers
+- Views
 
-### Stored Functions
+## Stored Functions
 
 | Function | Purpose |
 |---|---|
-| `Calculate_Charge()` | Calculates courier charges |
-| `Estimated_Delivery_Date()` | Estimates delivery dates using sample service rules |
-| `Delivery_Days()` | Calculates actual delivery duration |
-| `Calculate_Discount()` | Calculates a discount for eligible regular customers |
-| `Agent_Performance()` | Calculates the percentage of completed assigned deliveries |
+| Calculate_Charge() | Calculates courier charges |
+| Estimated_Delivery_Date() | Estimates expected delivery date |
+| Delivery_Days() | Calculates actual delivery duration |
+| Calculate_Discount() | Calculates discounts for regular customers |
+| Agent_Performance() | Calculates agent delivery completion percentage |
 
-### Stored Procedure
+## Stored Procedure
 
-`Book_Courier()` automates courier booking by creating the related courier, booking, shipment, payment and initial tracking records.
+### Book_Courier()
 
-### Trigger
+Automates the courier booking process by creating related records in the following tables:
 
-`Update_Tracking` automatically adds a tracking history record when the shipment status changes.
+- Courier
+- Booking
+- Shipment
+- Payment
+- Tracking
 
-### Views
+## Trigger
+
+### Update_Tracking
+
+Automatically inserts a tracking history record whenever the shipment status changes.
+
+## Views
+
+The project uses views to generate the following reports:
 
 - Customer booking report
 - Shipment status report
@@ -80,11 +94,13 @@ Database name: `trackflow_db`
 - Delivery agent performance report
 - Branch performance report
 - Customer feedback report
-- Shipment tracking history report
+- Complete shipment tracking history
 
-### Analytical Queries
+## Analytical Queries
 
-| Concept | Analysis |
+JOINs and subqueries are used to extract meaningful information from existing records and support business decision-making.
+
+| Concept | Analytical Task |
 |---|---|
 | JOIN | City-wise paid revenue |
 | JOIN | Customer-wise total spending |
@@ -94,57 +110,113 @@ Database name: `trackflow_db`
 ## Project Structure
 
 ```text
-TrackFlow-Courier-Tracking-System/
-├── trackflow_db.sql
-├── data_insertion.sql
-├── Stored Function — Calculate Courier Charges.sql
-├── Stored Procedure — Book Courier.sql
-├── Trigger — Automatic Tracking Update.sql
-├── Views — Generate Final Reports.sql
-├── JOINS & Subquerry generate meaningful analytical reports.sql
-└── ER2.svg
+Repository/
+├── TrackFlow-Courier-Tracking-System/
+│   ├── trackflow_db.sql
+│   ├── data_insertion.sql
+│   ├── Stored Function — Calculate Courier Charges.sql
+│   ├── Stored Procedure — Book Courier.sql
+│   ├── Trigger — Automatic Tracking Update.sql
+│   ├── Views — Generate Final Reports.sql
+│   ├── JOINS & Subquerry generate meaningful analytical reports.sql
+│   └── ER2.svg
+└── README.md
 ```
+
 ## How to Run
 
-1. Install MySQL Server and MySQL Workbench.
-2. Clone or download this repository from GitHub.
-3. Open MySQL Workbench and connect to the local MySQL server.
-4. Open and execute the SQL files in numerical order, starting with `01_Create_Database.sql`.
+### Prerequisites
+
+- MySQL Server
+- MySQL Workbench
+
+### Execution Steps
+
+1. Clone or download this repository.
+2. Open MySQL Workbench.
+3. Connect to your local MySQL server.
+4. Execute the SQL files in the following order:
+
+| Order | File |
+|---|---|
+| 1 | trackflow_db.sql |
+| 2 | data_insertion.sql |
+| 3 | Stored Function — Calculate Courier Charges.sql |
+| 4 | Stored Procedure — Book Courier.sql |
+| 5 | Trigger — Automatic Tracking Update.sql |
+| 6 | Views — Generate Final Reports.sql |
+| 7 | JOINS & Subquerry generate meaningful analytical reports.sql |
+
 5. Select the database:
 
-   ```sql
-   USE trackflow_db;
-   ```
+```sql
+USE trackflow_db;
+```
 
-6. Execute the functions, reports and analytical queries to explore the project.
+6. Execute the functions, views and analytical queries.
 
-Run the database initialization and sample data scripts once on a fresh database to avoid duplicate records.
+Run the database creation and sample data scripts once on a fresh database to avoid duplicate records.
 
 ## Sample Queries
 
+### Calculate Courier Charges
+
 ```sql
 SELECT Calculate_Charge('Parcel', 2);
+```
+
+### Agent Performance
+
+```sql
 SELECT Agent_Performance(1);
+```
+
+### Customer Booking Report
+
+```sql
 SELECT * FROM Booking_Report;
+```
+
+### Shipment Status Report
+
+```sql
 SELECT * FROM Shipment_Report;
+```
+
+### Complete Tracking History
+
+```sql
 SELECT * FROM Tracking_Report;
 ```
 
+## Project Highlights
+
+- Relational database containing 11 tables.
+- Automated courier charge calculation.
+- Automated courier booking process.
+- Automatic shipment tracking updates.
+- Data integrity using database constraints.
+- Business reports using views.
+- Analytical queries using JOINs and subqueries.
+
 ## Limitations
 
-- The system is database-only and does not include a graphical frontend.
-- Tracking locations are recorded or inferred from shipment data; there is no live GPS tracking.
-- Delivery estimates and discounts use sample business rules.
-- Payment records do not represent integration with an online payment gateway.
+- The project is database-only and does not include a graphical frontend.
+- No real-time GPS tracking.
+- No online payment gateway integration.
+- Delivery estimates and discounts use predefined sample business rules.
 - Branch shipment reports associate shipments with branches through the source city.
 
 ## Academic Information
 
-- **Course:** Master of Computer Applications (MCA)
-- **Semester:** First Semester
-- **Subject:** Database Management Systems (DBMS)
-- **Institute:** Jaypee Institute of Information Technology, Noida
+| Details | Information |
+|---|---|
+| Course | Master of Computer Applications (MCA) |
+| Semester | First Semester |
+| Subject | Database Management Systems (DBMS) |
+| Institute | Jaypee Institute of Information Technology, Noida |
+| Academic Year | 2026–2027 |
 
 ## Conclusion
 
-TrackFlow demonstrates how relational databases and advanced SQL concepts can be used to manage courier operations, maintain consistent records and generate useful business insights.
+TrackFlow demonstrates how relational databases and advanced SQL concepts can be used to manage courier operations, maintain data integrity, automate database operations and generate meaningful analytical reports.
