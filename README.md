@@ -42,7 +42,7 @@ Database name: `trackflow_db`
 
 ## Entity Relationship Diagram (ERD)
 
-![TrackFlow Entity Relationship Diagram](./ER2.svg)
+![TrackFlow Entity Relationship Diagram](./TrackFlow/ER.svg)
 
 ## Implemented DBMS Concepts
 
