@@ -42,7 +42,7 @@ The project demonstrates relational database design and advanced SQL concepts th
 
 ## Entity Relationship Diagram (ERD)
 
-![TrackFlow Entity Relationship Diagram](https://raw.githubusercontent.com/sourabhmehta-JH01/TrackFlow-Courier-Tracking-System/refs/heads/main/TrackFlow%20%E2%80%93%20Courier%20%20Tracking%20System/ER2.svg)
+![TrackFlow ER Diagram](./TrackFlow%20%E2%80%93%20Courier%20%20Tracking%20System/ER2.svg)
 
 ## Implemented DBMS Concepts
 
