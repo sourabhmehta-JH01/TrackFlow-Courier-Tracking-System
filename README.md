@@ -42,7 +42,7 @@ Database name: `trackflow_db`
 
 ## Entity Relationship Diagram (ERD)
 
-![TrackFlow Entity Relationship Diagram](TrackFlow-Courier-Tracking-System/ER2.svg)
+![TrackFlow Entity Relationship Diagram](./TrackFlow-Courier-Tracking-System/ER2.svg)
 
 ## Implemented DBMS Concepts
 
@@ -94,20 +94,16 @@ Database name: `trackflow_db`
 ## Project Structure
 
 ```text
-TrackFlow-DBMS/
-├── 01_Create_Database.sql
-├── 02_Create_Tables.sql
-├── 03_Insert_Data.sql
-├── 04_Stored_Functions.sql
-├── 05_Stored_Procedures.sql
-├── 06_Triggers.sql
-├── 07_Views.sql
-├── 08_Joins.sql
-├── 09_Subqueries.sql
-├── ER.svg
-└── README.md
+TrackFlow-Courier-Tracking-System/
+├── trackflow_db.sql
+├── data_insertion.sql
+├── Stored Function — Calculate Courier Charges.sql
+├── Stored Procedure — Book Courier.sql
+├── Trigger — Automatic Tracking Update.sql
+├── Views — Generate Final Reports.sql
+├── JOINS & Subquerry generate meaningful analytical reports.sql
+└── ER2.svg
 ```
-
 ## How to Run
 
 1. Install MySQL Server and MySQL Workbench.
